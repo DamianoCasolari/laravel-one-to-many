@@ -8,7 +8,7 @@
 
             <div class="info_contaienr p-2 col-sm-6 text-center text-sm-start">
                 <h1 id="myText">
-                    <span class="fade_in position-relative">Hi, I'm Damiano</span>
+                    <span class="fade_in position-relative fs-1">Hi, I'm Damiano</span>
 
                 </h1>
 
