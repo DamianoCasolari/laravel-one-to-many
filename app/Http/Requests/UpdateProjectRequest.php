@@ -29,7 +29,8 @@ class UpdateProjectRequest extends FormRequest
             'logo' => ['nullable', 'max:255'],
             'link' => ['nullable'],
             'functionality' => ['nullable'],
-            'languages_used' => ['nullable', 'max:255']
+            'languages_used' => ['nullable', 'max:255'],
+            'type_id' => ['exists:types,id']
 
         ];
     }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -15,7 +17,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::orderByDesc('id')->get();
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -36,7 +39,14 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        // $val_data = $request->validated();
+
+        // $slug = Str::slug($request->name);
+        // //dd($slug);
+        // $val_data['slug'] = $slug;
+
+        // Type::create($val_data);
+        // return to_route('admin.types.index')->with('message', 'type created successfully');
     }
 
     /**
@@ -81,6 +91,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        // $type->delete();
+        // return to_route('admin.types.index')->with('message', 'type deleted successfully');
     }
 }

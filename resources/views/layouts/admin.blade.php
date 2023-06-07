@@ -29,10 +29,11 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center h-100">
                     <h3 class="text-light me-3">My Projects</h3>
-                    <a class="navbar-brand text-light text-white-50" href="{{ route('welcome') }}">Home</a>
+                    <a class="navbar-brand text-light text-white-50 hover_light td"
+                        href="{{ route('welcome') }}">Home</a>
                 </div>
                 <div class="">
-                    <a class="no_undescore text-light p-2 d-none d-md-block" href="#">
+                    <a class="no_undescore text-white-50 p-2 d-none d-md-block hover_light td" href="#">
                         Sign out
                     </a>
                 </div>
@@ -64,14 +65,16 @@
                                 <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark  text-white-50' : 'text-muted' }}"
                                     href="{{ route('admin.projects.index') }}">
                                     <i class="fa-solid fa-thumbtack"></i>
-                                    {{ __('Project') }}
+                                    {{ __('Projects') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link p-2 " href="#">
+                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark  text-white-50' : 'text-muted' }}"
+                                    href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-bookmark"></i>
-                                    Categories
+                                    {{ __('Types') }}
                                 </a>
+
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link p-2 " href="#">
@@ -153,29 +156,30 @@
         <main class="col-12 d-flex justify-content-between">
             <nav class="d-none col-md-4 col-lg-2 d-md-block bg-light sidebar collapse desktop_nav">
                 <div class="position-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark  text-light' : ' text-muted' }}"
+                    <ul class="nav flex-column sx_nav">
+                        <li class="nav-item hover_bg">
+                            <a class="nav_link {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark  text-light' : ' ' }}"
                                 aria-current="page" href="{{ route('admin.dashboard') }}">
                                 <i class="fa-solid fa-gauge"></i>
                                 {{ __('Dashboard') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark text-white-50' : 'text-muted' }}"
+                        <li class="nav-item hover_bg">
+                            <a class="nav_link {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark text-white-50' : '' }}"
                                 href="{{ route('admin.projects.index') }}">
                                 <i class="fa-solid fa-thumbtack"></i>
                                 {{ __('Project') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" href="#">
+                        <li class="nav-item hover_bg">
+                            <a class="nav_link {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark  text-white-50' : '' }}"
+                                href="{{ route('admin.types.index') }}">
                                 <i class="fa-solid fa-bookmark"></i>
-                                Categories
+                                {{ __('Types') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" href="#">
+                        <li class="nav-item hover_bg">
+                            <a class="nav_link " href="#">
                                 <i class="fa-solid fa-tags"></i>
                                 Tags
                             </a>

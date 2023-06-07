@@ -42,22 +42,6 @@
                         </div>
                     @enderror
                 </div>
-                <div class="mb-3 ">
-                    <label for="functionality" class="col-4 col-form-label">functionality</label>
-                    <div class="col-12">
-                        {{-- <input type="text" class="form-control w-100" name="functionality" id="functionality"
-                            value="{{ old('functionality') }}" placeholder="Functionality"> --}}
-                        <textarea name="" id="" cols="30" rows="10" class="form-control w-100" name="languages_used"
-                            id="languages_used" placeholder="Description" value="{{ old('functionality') }}"></textarea>
-                    </div>
-                    @error('functionality')
-                        <div class="alert alert-danger position-relative" style="margin-top:1px;" role="alert">
-                            <i class="fa-regular fa-xl fa-hand-pointer up_down"></i>
-                            <strong>functionality, Error: </strong>{{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
                 <div class="mb-3">
                     <label for="type_id" class="form-label">Type</label>
                     <select class="form-select" name="type_id" id="type_id">
@@ -68,8 +52,6 @@
                         @endforeach
                     </select>
                 </div>
-
-
                 <div class="mb-3 ">
                     <label for="link" class="col-4 col-form-label">Link</label>
                     <div class="col-12">
@@ -96,7 +78,21 @@
                         </div>
                     @enderror
                 </div>
-
+                <div class="mb-3 ">
+                    <label for="functionality" class="col-4 col-form-label">functionality</label>
+                    <div class="col-12">
+                        {{-- <input type="text" class="form-control w-100" name="functionality" id="functionality"
+                            value="{{ old('functionality') }}" placeholder="Functionality"> --}}
+                        <textarea name="" id="" cols="30" rows="10" class="form-control w-100" name="languages_used"
+                            id="languages_used" placeholder="Description" value="{{ old('functionality') }}"></textarea>
+                    </div>
+                    @error('functionality')
+                        <div class="alert alert-danger position-relative" style="margin-top:1px;" role="alert">
+                            <i class="fa-regular fa-xl fa-hand-pointer up_down"></i>
+                            <strong>functionality, Error: </strong>{{ $message }}
+                        </div>
+                    @enderror
+                </div>
                 <div class="mb-3 text-center col-12">
                     <div class=" col-12 mt-5">
                         <button type="submit" class="btn btn-primary w-100">Submit</button>
