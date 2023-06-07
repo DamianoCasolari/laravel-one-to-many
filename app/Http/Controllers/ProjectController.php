@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -26,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -37,7 +39,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //dd($request->all());
+        dd($request->all());
 
         // validate the request   
         $val_data =  $request->validated();
@@ -50,6 +52,7 @@ class ProjectController extends Controller
         // Create the new Project
         Project::create($val_data);
         // redirect back
+
         return to_route('admin.projects.index')->with('message', 'Project Created Successfully');
     }
 
