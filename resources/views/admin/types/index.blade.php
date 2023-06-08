@@ -4,44 +4,101 @@
 
     <div class="banner py-2 shadow-sm">
         <h1 class="px-2 text-primary">Show Type table</h1>
-        <a class="btn btn-dark m-2 " href="{{ route('admin.projects.create') }}" role="button">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            Add new Type</a>
+
+        <form action="{{ route('admin.types.store') }}" method="post">
+            @csrf
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><button type="submit"
+                        class="border border-0 bg-transparent"><i class="fa fa-plus" aria-hidden="true"></i></button> </span>
+                <input type="text" class="form-control" id="name" name="name"
+                    placeholder="type the name of the new type" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </form>
+
     </div>
+
+
     <div class="table-responsive">
-        <table class="table table-striped
+        <table class="table table-striped 
     table-hover	
     table-borderless
-    table-primary
-    align-middle">
-            <thead class="table-light bg-dark">
+    align-middle text-center">
+            <thead class="table-light">
                 <caption>Types Index</caption>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>slug</th>
-                    <th>projects with this type</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th>Projects with this type</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 @foreach ($types as $type)
-                    <tr class="table-primary">
+                    <tr class="">
                         <td scope="row"> {{ $type->id }}</td>
-                        <td scope="row"> {{ $type->name }}</td>
+                        <td scope="row"> <b>{{ $type->name }}</b> </td>
                         <td scope="row"> {{ $type->slug }}</td>
-                        <td scope="row text-center">
-                            <span class="badge bg-dark ">{{ $type->projects->count() }}</span>
+                        <td scope="row">
+                            <div class="badge bg-dark">{{ $type->projects->count() }}</div>
 
                         </td>
+                        <td scope="row">
+                            <button type="button" class="btn btn-danger fs_13" data-bs-toggle="modal"
+                                data-bs-target="#modalId-{{ $type->id }}">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+
+                        </td>
+
                     </tr>
+                    <!-- MODAL -->
+
+                    <div class="modal fade" id="modalId-{{ $type->id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="modalTitleId-{{ $type->id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitleId-{{ $type->id }}">{{ __('Warning') }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        Are you sure you delete the type class : <b>{{ $type->name }}</b> ?
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <form action="{{ route('admin.types.destroy', $type->slug) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger m-1">Delete</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
+            </tbody>
 
-            <tfoot>
-
-            </tfoot>
         </table>
     </div>
 
+    <script>
+        var modalId = document.getElementById('modalId');
+
+        modalId.addEventListener('show.bs.modal', function(event) {
+            // Button that triggered the modal
+            let button = event.relatedTarget;
+            // Extract info from data-bs-* attributes
+            let recipient = button.getAttribute('data-bs-whatever');
+
+            // Use above variables to manipulate the DOM
+        });
+    </script>
 
 
 @endsection

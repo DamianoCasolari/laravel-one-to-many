@@ -39,14 +39,14 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        // $val_data = $request->validated();
+        $val_data = $request->validated();
 
-        // $slug = Str::slug($request->name);
-        // //dd($slug);
-        // $val_data['slug'] = $slug;
+        $slug = Str::slug($request->name);
+        //dd($slug);
+        $val_data['slug'] = $slug;
 
-        // Type::create($val_data);
-        // return to_route('admin.types.index')->with('message', 'type created successfully');
+        Type::create($val_data);
+        return to_route('admin.types.index')->with('message', 'type created successfully');
     }
 
     /**
@@ -91,7 +91,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        // $type->delete();
-        // return to_route('admin.types.index')->with('message', 'type deleted successfully');
+        $type->delete();
+        return to_route('admin.types.index')->with('message', 'type deleted successfully');
     }
 }
