@@ -20,7 +20,18 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+
+    <style>
+        .bg_color {
+            background-image: url('{{ asset('img/Default_minimal_brush_strokes_with_very_bright_colorsadss_on_to_ba_0.jpg') }}') !important;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
 </head>
+
+
 
 <body>
     <div id="app">
@@ -42,6 +53,8 @@
                     aria-controls="offcanvasNavbar">
                     <i class="fa-solid fa-bars"></i>
                 </button>
+
+                {{-- OFFCANVAS  --}}
                 <div class="offcanvas offcanvas-end d-md-none vh100" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
@@ -98,63 +111,9 @@
             </div>
         </nav>
 
-
-        {{-- <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 shadow" height="100">
-            <div class="w-100 d-flex">
-                <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse"
-                    data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">My Project</a>
-            </div>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="#">Sign out</a>
-                </li>
-            </ul>
-
-        </nav>
-
-        <div class="container-fluid vh-100">
-            <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark' : '' }}"
-                                    aria-current="page" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-gauge"></i>
-                                    {{ __('Dashboard') }}
-                                </a>
-                            </li> --}}
-        {{-- <li class="nav-item">
-                                <a class="nav-link {{ Route::currentRouteName() == 'admin.posts.index' ? 'bg-dark' : '' }}"
-                                    href="{{ route('admin.posts.index') }}">
-                                    <i class="fa-solid fa-thumbtack"></i>
-                                    {{ __('Posts') }}
-                                </a>
-                            </li> --}}
-        {{-- <li class="nav-item">
-                                <a class="nav-link " href="#">
-                                    <i class="fa-solid fa-bookmark"></i>
-                                    Categories
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">
-                                    <i class="fa-solid fa-tags"></i>
-                                    Tags
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </nav> --}}
-
+        {{-- LEFT NAVBAR  --}}
         <main class="col-12 d-flex justify-content-between">
-            <nav class="d-none col-md-4 col-lg-2 d-md-block bg-light sidebar collapse desktop_nav">
+            <nav class="d-none col-md-4 col-lg-2 d-md-block sidebar collapse desktop_nav bg_color">
                 <div class="position-sticky">
                     <ul class="nav flex-column sx_nav">
                         <li class="nav-item hover_bg">
