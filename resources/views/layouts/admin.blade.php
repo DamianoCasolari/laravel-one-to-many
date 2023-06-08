@@ -45,7 +45,7 @@
                 <div class="offcanvas offcanvas-end d-md-none vh100" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menù</h5>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
@@ -54,29 +54,29 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark text-white' : '' }}"
+                            <li class="nav-item ">
+                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark text-white border rounded-4' : '' }}"
                                     aria-current="page" href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-gauge"></i>
                                     {{ __('Dashboard') }}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark  text-white-50' : 'text-muted' }}"
+                            <li class="nav-item rounded_opt">
+                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark  text-white-50 border rounded-4' : 'text-muted' }}"
                                     href="{{ route('admin.projects.index') }}">
                                     <i class="fa-solid fa-thumbtack"></i>
                                     {{ __('Projects') }}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark  text-white-50' : 'text-muted' }}"
+                            <li class="nav-item rounded_opt">
+                                <a class="nav-link p-2 {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark  text-white-50 border rounded-4' : 'text-muted' }}"
                                     href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-bookmark"></i>
                                     {{ __('Types') }}
                                 </a>
 
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item rounded_opt">
                                 <a class="nav-link p-2 " href="#">
                                     <i class="fa-solid fa-tags"></i>
                                     Tags

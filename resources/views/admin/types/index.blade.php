@@ -20,6 +20,7 @@
                     <th>id</th>
                     <th>name</th>
                     <th>slug</th>
+                    <th>projects with this type</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -28,6 +29,10 @@
                         <td scope="row"> {{ $type->id }}</td>
                         <td scope="row"> {{ $type->name }}</td>
                         <td scope="row"> {{ $type->slug }}</td>
+                        <td scope="row text-center">
+                            <span class="badge bg-dark ">{{ $type->projects->count() }}</span>
+
+                        </td>
                     </tr>
                 @endforeach
 
